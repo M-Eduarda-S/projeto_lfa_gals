@@ -14,20 +14,32 @@ Parser = SLR
 
 #Tokens
  :[\ \n\t\r\s]+
-numeros: [0-9]+
-soma: \+
-subtracao: \-
-imprimir: imprimir
-capturar: capturar
+log: "log"
+print: "Show"
+binario: [0-1]+
+id: [a-zA-Z][a-zA-Z0-9]*
+soma: "+"
+sub: "-"
+mult: "*"
+div: "/"
+exp: "^"
+igual: "="
+abreParentese: "("
+fechaParentese: ")"
+final: ";"
 #NonTerminals
 <lista_comandos>
 <comando>
-<calculos>
-<calculo>
+<atribuicao>
+<expressao>
+<termo>
+<potencia>
 <valor>
 #Grammar
 <lista_comandos> ::= <comando> <lista_comandos> | <comando>;
-<comando> ::= imprimir #1|  <valor> <calculos>;
-<calculos> ::= <calculos><calculo> | <calculo>;
-<calculo> ::= soma <valor> #4| subtracao <valor> #5 ;
-<valor> ::= numeros #3 | capturar #2;
+<comando> ::= <atribuicao> | print abreParentese id #2 fechaParentese final;
+<atribuicao> ::= id #11 igual <expressao> final #9;
+<expressao> ::= <expressao> soma <termo> #3 | <expressao> sub <termo> #4 | <termo>;
+<termo> ::= <termo> mult <potencia> #5 | <termo> div <potencia> #6 | <potencia>;
+<potencia> ::= <valor> exp <potencia> #7 | log <valor> #8 | <valor>;
+<valor> ::= binario #1 | id #12 | abreParentese <expressao> fechaParentese;
