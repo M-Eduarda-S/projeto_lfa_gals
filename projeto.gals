@@ -14,7 +14,6 @@ Parser = SLR
 
 #Tokens
  :[\ \n\t\r\s]+
-log: "log"
 print: "Show"
 binario: [0-1]+
 id: [a-zA-Z][a-zA-Z0-9]*
@@ -23,6 +22,7 @@ sub: "-"
 mult: "*"
 div: "/"
 exp: "^"
+log: "log"
 igual: "="
 abreParentese: "("
 fechaParentese: ")"
