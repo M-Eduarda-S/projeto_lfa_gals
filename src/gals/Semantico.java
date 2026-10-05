@@ -30,10 +30,10 @@ public class Semantico implements Constants
             
         case 2: // imprimir
             String nome_var = token.getLexeme();
-            if (!memoriaVariaveis.containsKey(nome_var)) {
+            if (!memoria_variaveis.containsKey(nome_var)) {
                 throw new SemanticError("A variável '" + nome_var + "' não foi declarada.", token.getPosition());
             }
-            valor = (Integer) memoriaVariaveis.get(nome_var);
+            valor = (Integer) memoria_variaveis.get(nome_var);
             String valor_bin = Integer.toBinaryString(valor.intValue());
             System.out.println(valor_bin);
 
@@ -140,18 +140,14 @@ public class Semantico implements Constants
             
         case 9: // atribuir
             resultado_expressao = (Integer) stack.pop();
-            memoriaVariaveis.put(variavel_atual, resultado_expressao);
+            memoria_variaveis.put(variavel_atual, resultado_expressao);
 
     
             // resultado_expressao = stack.pop();
             // memoria_variaveis.put(variavel_atual, resultado_expressao);
 
             break;
-            
-        //  case 11: // guarda o nome da variável da atribuição
-        //     variavel_atual = token.getLexeme();
-        //     break;
-
+        
         // case 12: // variável usada dentro de uma expressão
         //     String nome_var_uso = token.getLexeme();
 
@@ -168,16 +164,16 @@ public class Semantico implements Constants
         //     throw new SemanticError("Ação semântica desconhecida: #" + action, token.getPosition());
         // }
 
-        case 10:
+        case 10: // guarda o nome da variável da atribuição
             variavel_atual = token.getLexeme();
             break;
             
-        case 11:
+        case 11: // variável usada dentro de uma expressão
             String nome_var_uso = token.getLexeme();
-            if (!memoriaVariaveis.containsKey(nome_var_uso)) {
+            if (!memoria_variaveis.containsKey(nome_var_uso)) {
                 throw new SemanticError("A variável '" + nome_var_uso + "' não foi declarada.", token.getPosition());
             }
-            valor = (Integer) memoriaVariaveis.get(nome_var_uso);
+            valor = (Integer) memoria_variaveis.get(nome_var_uso);
             stack.push(valor);
             break;      
         }
