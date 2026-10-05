@@ -20,12 +20,12 @@ sub: "-"
 mult: "*"
 div: "/"
 exp: "^"
-log: “log”
+log: "log"
 abre_paren: "("
 fecha_paren: ")"
 igual: "="
-ponto_virgula: “;”
-imprimir: “Show”
+ponto_virgula: ";"
+imprimir: "Show"
 var: [a-zA-Z][a-zA-Z0-9]* 
 #NonTerminals
 <lista_comandos>
@@ -42,4 +42,4 @@ var: [a-zA-Z][a-zA-Z0-9]*
 <expressao> ::= <expressao> soma <termo> #3 | <expressao> sub <termo> #4 | <termo>;
 <termo> ::= <termo> mult <potencia> #5 | <termo> div <potencia> #6 | <potencia>;
 <potencia> ::= <fator> exp <potencia> #7 | log <fator> #8 | <fator>;
-<fator> ::= numeros #1 | var  #12 | abre_paren <expressao> fecha_paren;
+<fator> ::= numeros #1 | var #12 | abre_paren <expressao> fecha_paren;
