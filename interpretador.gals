@@ -13,20 +13,20 @@ Parser = SLR
 #RegularDefinitions
 
 #Tokens
- :[\ \n\t\r\s]+
-print: "Show"
-binario: [0-1]+
-id: [a-zA-Z][a-zA-Z0-9]*
+: [\s\t\n\r]+
+numeros: [0-1]+
 soma: "+"
 sub: "-"
 mult: "*"
 div: "/"
 exp: "^"
-log: "log"
+log: “log”
+abre_paren: "("
+fecha_paren: ")"
 igual: "="
-abreParentese: "("
-fechaParentese: ")"
-final: ";"
+ponto_virgula: “;”
+imprimir: “Show”
+var: [a-zA-Z][a-zA-Z0-9]* 
 #NonTerminals
 <lista_comandos>
 <comando>
@@ -34,12 +34,12 @@ final: ";"
 <expressao>
 <termo>
 <potencia>
-<valor>
+<fator>
 #Grammar
 <lista_comandos> ::= <comando> <lista_comandos> | <comando>;
-<comando> ::= <atribuicao> | print abreParentese id #2 fechaParentese final;
-<atribuicao> ::= id #11 igual <expressao> final #9;
+<comando> ::= <atribuicao> | imprimir abre_paren var #2 fecha_paren ponto_virgula;
+<atribuicao> ::= var #11 igual <expressao> ponto_virgula #9;
 <expressao> ::= <expressao> soma <termo> #3 | <expressao> sub <termo> #4 | <termo>;
 <termo> ::= <termo> mult <potencia> #5 | <termo> div <potencia> #6 | <potencia>;
-<potencia> ::= <valor> exp <potencia> #7 | log <valor> #8 | <valor>;
-<valor> ::= binario #1 | id #12 | abreParentese <expressao> fechaParentese;
+<potencia> ::= <fator> exp <potencia> #7 | log <fator> #8 | <fator>;
+<fator> ::= numeros #1 | var  #12 | abre_paren <expressao> fecha_paren;
