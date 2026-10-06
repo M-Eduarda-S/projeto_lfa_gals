@@ -21,16 +21,14 @@ Linguagens Formais e Autômatos
 ## Tecnologias
 
 - Linguagem Java
-- GALS
-- Gramática Livre de Contexto
+- GALS / Web-GALS
 
 ## GALS
-
-Para a criação do arquivo `interpretador.gals`, foram utilizadas as ferramentas do **Web-GALS**, disponibilizadas pela UNIVALI.
+O arquivo interpretador.gals foi desenvolvido utilizando o **Web-GALS**, disponibilizado pela UNIVALI.
 
 Web-GALS: https://lia-univali.github.io/Web-GALS/
 
-O arquivo `interpretador.gals` contém as definições dos tokens e da gramática utilizadas para gerar os analisadores léxico e sintático.
+O arquivo contém as definições dos **tokens** e da **gramática** da linguagem. A partir dele, foram **gerados os arquivos Java** utilizados no projeto.
 
 ## Requisitos de Execução
 
