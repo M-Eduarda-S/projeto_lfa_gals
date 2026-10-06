@@ -1,5 +1,6 @@
 package gals;
 
+import java.io.StringReader;
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +15,7 @@ public class Main {
         // Resultado: 101 (decimal: 5)
 
         try {
-            Lexico lexico = new Lexico(codigo);
+            Lexico lexico = new Lexico(new StringReader(codigo));
             Sintatico sintatico = new Sintatico();
             Semantico semantico = new Semantico();
 
