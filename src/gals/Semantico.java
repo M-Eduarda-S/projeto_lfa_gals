@@ -33,9 +33,8 @@ public class Semantico implements Constants
             }
             valor = memoria_variaveis.get(nome_var);
             String valor_bin = Integer.toBinaryString(valor.intValue());
-            System.out.println("Resultado: " + valor_bin + " (decimal: " + valor + ")");
+            System.out.println("Resultado de " + nome_var + ": " + valor_bin + " (decimal: " + valor + ")");
             break;
-            
         case 3: // soma
             b = stack.pop();
             a = stack.pop();
