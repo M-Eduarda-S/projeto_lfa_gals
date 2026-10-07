@@ -16,7 +16,7 @@ public interface Constants extends ScannerConstants, ParserConstants
     int t_fecha_paren = 10;
     int t_igual = 11;
     int t_ponto_virgula = 12;
-    int t_imprimir = 13;
+    int t_show = 13;
     int t_var = 14;
 
 }

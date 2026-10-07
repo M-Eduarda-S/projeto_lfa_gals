@@ -54,7 +54,7 @@ public class Semantico implements Constants
 
             break;
             
-        case 6:
+        case 6: // divisão
             b = stack.pop();
             a = stack.pop();
 
