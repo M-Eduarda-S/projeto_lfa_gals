@@ -25,7 +25,7 @@ abre_paren: "("
 fecha_paren: ")"
 igual: "="
 ponto_virgula: ";"
-show: "Show"
+imprimir: "Show"
 var: [a-zA-Z][a-zA-Z0-9]* 
 #NonTerminals
 <lista_comandos>
@@ -37,7 +37,7 @@ var: [a-zA-Z][a-zA-Z0-9]*
 <fator>
 #Grammar
 <lista_comandos> ::= <comando> <lista_comandos> | <comando>;
-<comando> ::= <atribuicao> | show abre_paren var #2 fecha_paren ponto_virgula;
+<comando> ::= <atribuicao> | imprimir abre_paren var #2 fecha_paren ponto_virgula;
 <atribuicao> ::= var #10 igual <expressao> ponto_virgula #9;
 <expressao> ::= <expressao> soma <termo> #3 | <expressao> sub <termo> #4 | <termo>;
 <termo> ::= <termo> mult <potencia> #5 | <termo> div <potencia> #6 | <potencia>;
